@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Disappointment Panda</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
   <style>
     :root {
       --bg: #0a0a0a;
@@ -12,7 +12,6 @@
       --muted: #888;
       --hover: #1e1e1e;
       --input-bg: #1c1c1c;
-      --accent: #ffffff;
     }
 
     html, body {
@@ -21,7 +20,7 @@
       font-family: 'Inter', sans-serif;
       background-color: var(--bg);
       color: var(--fg);
-      height: 100%;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
     }
@@ -32,8 +31,8 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 3rem 2rem;
       text-align: center;
+      padding: 2rem 1rem;
     }
 
     .panda-logo {
@@ -44,37 +43,34 @@
     }
 
     h1 {
-      font-size: 2.5rem;
-      font-weight: 600;
+      font-size: 2.25rem;
       margin: 0;
     }
 
     .subheading {
       font-size: 0.95rem;
       color: var(--muted);
-      margin: 1rem 0 3rem;
+      margin: 0.75rem 0 2.5rem;
     }
 
     #date {
       font-size: 1.05rem;
-      font-weight: 500;
-      margin-bottom: 1.5rem;
-      color: #ccc;
+      color: #bbb;
+      margin-bottom: 1rem;
     }
 
     .quote {
-      font-size: 1.5rem;
-      font-weight: 500;
-      max-width: 800px;
+      font-size: 1.4rem;
+      max-width: 650px;
       line-height: 1.6;
-      margin-bottom: 2.5rem;
+      margin: 0 auto 2rem;
       padding: 0 1rem;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
     }
 
     .email-form {
       display: flex;
-      flex-direction: row;
-      align-items: center;
       gap: 0.5rem;
       flex-wrap: wrap;
       justify-content: center;
@@ -90,19 +86,19 @@
       width: 250px;
     }
 
-    input[type="email"]::placeholder {
+    input::placeholder {
       color: #777;
     }
 
     button {
       background-color: var(--fg);
       color: var(--bg);
-      padding: 0.85rem 1.25rem;
-      font-size: 1rem;
       border: none;
       border-radius: 6px;
+      padding: 0.85rem 1.2rem;
+      font-size: 1rem;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      transition: background 0.3s ease;
     }
 
     button:hover {
@@ -123,13 +119,13 @@
     }
 
     .socials {
-      margin-top: 3rem;
+      margin-top: 2rem;
     }
 
     .socials a img {
       width: 24px;
       height: 24px;
-      margin: 0 10px;
+      margin: 0 8px;
       filter: brightness(0) invert(1);
       opacity: 0.6;
       transition: opacity 0.2s ease;
@@ -140,43 +136,33 @@
     }
 
     footer {
-      padding: 1rem 0;
+      height: 60px;
       font-size: 0.75rem;
       color: var(--muted);
       text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 1rem;
     }
 
     @media (max-width: 600px) {
-      .quote {
-        font-size: 1.2rem;
-      }
-
-      input[type="email"] {
-        width: 100%;
-      }
-
-      .email-form {
-        flex-direction: column;
-      }
-
-      button {
-        width: 100%;
-      }
-
-      main {
-        padding: 2rem 1rem;
-      }
+      .quote { font-size: 1.15rem; }
+      input[type="email"], button { width: 100%; }
+      .email-form { flex-direction: column; }
+      main { padding: 1.5rem 1rem; }
     }
   </style>
 </head>
-<body>
 
+<body>
   <main>
-    <img src="panda_8372124.png" alt="Panda Logo" class="panda-logo" />    <h1>Disappointment Panda</h1>
+    <img src="panda_8372124.png" alt="Panda Logo" class="panda-logo" />
+    <h1>Disappointment Panda</h1>
     <div class="subheading">Not what you want to hear — what you need to.</div>
 
     <div id="date"></div>
-    <div class="quote" id="quote"></div>
+    <div id="quote" class="quote"></div>
 
     <div class="email-form" id="email-form">
       <input type="email" id="emailInput" placeholder="Enter your email" />
@@ -201,19 +187,20 @@
 
   <script>
     const quotes = [
-      "You think you're stuck — but you’re just waiting for permission.",
-      "Discipline isn't a punishment. It's a prerequisite for freedom.",
-      "You don’t need more time. You need more clarity.",
-      "What you avoid reveals what you most need to face.",
-      "You won't feel like it — do it anyway.",
-      "You don’t want advice. You want agreement.",
-      "You're not waiting for clarity. You're avoiding disappointment."
+      "What you consider friendship is really just your constant attempts to impress people.",
+      "You crave depth, but you're addicted to attention.",
+      "You’re not overwhelmed — you’re avoiding responsibility.",
+      "You're not being misunderstood. You're just not communicating clearly.",
+      "You don't want the truth. You want the truth to feel good.",
+      "You say you're a perfectionist, but it's just fear in a fancy outfit.",
+      "You're not too busy — you just don't want it badly enough."
     ];
 
-    const today = new Date();
-    const index = today.getDate() % quotes.length;
-    document.getElementById("date").innerText = today.toDateString();
-    document.getElementById("quote").innerText = quotes[index];
+    window.onload = () => {
+      const index = new Date().getDate() % quotes.length;
+      document.getElementById("date").innerText = new Date().toDateString();
+      document.getElementById("quote").innerText = quotes[index];
+    };
 
     async function subscribe() {
       const email = document.getElementById("emailInput").value.trim();
@@ -238,6 +225,5 @@
       }
     }
   </script>
-
 </body>
 </html>
