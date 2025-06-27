@@ -149,13 +149,25 @@
       padding: 0 1rem;
     }
 
-    @media (max-width: 600px) {
-      .quote { font-size: 1.2rem;
-  max-width: 28ch;}
-      input[type="email"], button { width: 100%; }
-      .email-form { flex-direction: column; }
-      main { padding: 1.5rem 1rem; }
-    }
+   @media (max-width: 600px) {
+  .quote {
+    font-size: 1.15rem;
+  }
+
+  input[type="email"], button {
+    width: 100%;
+  }
+
+  .email-form {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .email-form > * {
+    width: 100%;
+    max-width: 280px;
+  }
+}
   </style>
 </head>
 
