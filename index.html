@@ -61,14 +61,16 @@
     }
 
     .quote {
-      font-size: 1.4rem;
-      max-width: 650px;
-      line-height: 1.6;
-      margin: 0 auto 2rem;
-      padding: 0 1rem;
-      word-wrap: break-word;
-      overflow-wrap: break-word;
-    }
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 1.6;
+  max-width: 38ch; /* limits quote length for better balance */
+  text-align: center;
+  margin: 0 auto 2rem;
+  padding: 0 1rem;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
 
     .email-form {
       display: flex;
@@ -148,7 +150,8 @@
     }
 
     @media (max-width: 600px) {
-      .quote { font-size: 1.15rem; }
+      .quote { font-size: 1.2rem;
+  max-width: 28ch;}
       input[type="email"], button { width: 100%; }
       .email-form { flex-direction: column; }
       main { padding: 1.5rem 1rem; }
