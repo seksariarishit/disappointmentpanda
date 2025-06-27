@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Disappointment Panda</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --fg: #f2f2f2;
+      --muted: #888;
+      --hover: #1e1e1e;
+      --input-bg: #1c1c1c;
+      --accent: #ffffff;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
+      color: var(--fg);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    .panda-logo {
+      width: 38px;
+      height: 38px;
+      margin-bottom: 0.75rem;
+      filter: brightness(0) invert(1);
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    .subheading {
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin: 1rem 0 3rem;
+    }
+
+    #date {
+      font-size: 1.05rem;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+      color: #ccc;
+    }
+
+    .quote {
+      font-size: 1.5rem;
+      font-weight: 500;
+      max-width: 800px;
+      line-height: 1.6;
+      margin-bottom: 2.5rem;
+      padding: 0 1rem;
+    }
+
+    .email-form {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    input[type="email"] {
+      background-color: var(--input-bg);
+      border: none;
+      padding: 0.85rem 1rem;
+      border-radius: 6px;
+      color: var(--fg);
+      font-size: 1rem;
+      width: 250px;
+    }
+
+    input[type="email"]::placeholder {
+      color: #777;
+    }
+
+    button {
+      background-color: var(--fg);
+      color: var(--bg);
+      padding: 0.85rem 1.25rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: var(--hover);
+      color: var(--fg);
+    }
+
+    .email-subtext {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 0.75rem;
+    }
+
+    .success-message {
+      font-size: 1rem;
+      margin-top: 1rem;
+      color: #8ef58e;
+    }
+
+    .socials {
+      margin-top: 3rem;
+    }
+
+    .socials a img {
+      width: 24px;
+      height: 24px;
+      margin: 0 10px;
+      filter: brightness(0) invert(1);
+      opacity: 0.6;
+      transition: opacity 0.2s ease;
+    }
+
+    .socials a img:hover {
+      opacity: 1;
+    }
+
+    footer {
+      padding: 1rem 0;
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      .quote {
+        font-size: 1.2rem;
+      }
+
+      input[type="email"] {
+        width: 100%;
+      }
+
+      .email-form {
+        flex-direction: column;
+      }
+
+      button {
+        width: 100%;
+      }
+
+      main {
+        padding: 2rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <main>
+    <img src="panda_8372124.png" alt="Panda Logo" class="panda-logo" />    <h1>Disappointment Panda</h1>
+    <div class="subheading">Not what you want to hear — what you need to.</div>
+
+    <div id="date"></div>
+    <div class="quote" id="quote"></div>
+
+    <div class="email-form" id="email-form">
+      <input type="email" id="emailInput" placeholder="Enter your email" />
+      <button onclick="subscribe()">Subscribe</button>
+    </div>
+    <div class="email-subtext">(Newsletter coming soon — honest, unfiltered, needed.)</div>
+    <div class="success-message" id="successMessage" style="display: none;">You're subscribed.</div>
+
+    <div class="socials">
+      <a href="https://www.linkedin.com/in/rishitseksaria/" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" />
+      </a>
+      <a href="https://www.instagram.com/rishitseksaria/" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram" />
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    Built by Rishit Seksaria · Inspired by Mark Manson’s Disappointment Panda.
+  </footer>
+
+  <script>
+    const quotes = [
+      "You think you're stuck — but you’re just waiting for permission.",
+      "Discipline isn't a punishment. It's a prerequisite for freedom.",
+      "You don’t need more time. You need more clarity.",
+      "What you avoid reveals what you most need to face.",
+      "You won't feel like it — do it anyway.",
+      "You don’t want advice. You want agreement.",
+      "You're not waiting for clarity. You're avoiding disappointment."
+    ];
+
+    const today = new Date();
+    const index = today.getDate() % quotes.length;
+    document.getElementById("date").innerText = today.toDateString();
+    document.getElementById("quote").innerText = quotes[index];
+
+    async function subscribe() {
+      const email = document.getElementById("emailInput").value.trim();
+      const successMessage = document.getElementById("successMessage");
+
+      if (!email || !email.includes("@") || !email.includes(".")) {
+        alert("Please enter a valid email.");
+        return;
+      }
+
+      try {
+        await fetch('https://script.google.com/macros/s/AKfycbwonas7nXD5dOSisT6-UEDXB8w1S73RB6jJJaplFF7Nrq-QgI5f7S1e3Yh3zmiPVb25bw/exec', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: 'email=' + encodeURIComponent(email)
+        });
+
+        document.getElementById("email-form").style.display = "none";
+        successMessage.style.display = "block";
+      } catch (e) {
+        alert("Something went wrong. Try again later.");
+      }
+    }
+  </script>
+
+</body>
+</html>
