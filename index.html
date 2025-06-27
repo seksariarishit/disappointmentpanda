@@ -16,25 +16,33 @@
     }
 
     html, body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Inter', sans-serif;
-      background-color: var(--bg);
-      color: var(--fg);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg);
+  color: var(--fg);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-    main {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 2rem 1rem;
-    }
+body {
+  flex-direction: column;
+  overflow: hidden;
+}
+
+main {
+  width: 100%;
+  max-width: 700px;
+  padding: 1.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
 
     .panda-logo {
       width: 38px;
@@ -138,24 +146,27 @@
       opacity: 1;
     }
 
-    footer {
-      height: 60px;
-      font-size: 0.75rem;
-      color: var(--muted);
-      text-align: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0 1rem;
-    }
+   footer {
+  font-size: 0.75rem;
+  color: var(--muted);
+  text-align: center;
+  padding: 1rem 0 0.5rem;
+}
 
-    @media (max-width: 600px) {
-      .quote { font-size: 1.2rem;
-  max-width: 28ch;}
-      input[type="email"], button { width: 100%; }
-      .email-form { flex-direction: column; }
-      main { padding: 1.5rem 1rem; }
-    }
+   @media (max-width: 600px) {
+  .quote {
+    font-size: 1.2rem;
+    max-width: 28ch;
+  }
+
+  input[type="email"], button {
+    width: 100%;
+  }
+
+  .email-form {
+    flex-direction: column;
+  }
+}
   </style>
 </head>
 
